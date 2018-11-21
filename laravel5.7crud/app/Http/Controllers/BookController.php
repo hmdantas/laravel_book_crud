@@ -65,6 +65,9 @@ class BookController extends Controller
      */
     public function edit($id)
     {
+        $book = \App\Book::find($id);
+        return view('edit',compact('book','id'));
+  
         //
     }
 
@@ -77,6 +80,12 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $book= \App\Book::find($id);
+        $book->nome=$request->get('nome');
+        $book->autor=$request->get('autor');
+        $book->editora=$request->get('editora');
+        $book->save();
+        return redirect('books');
         //
     }
 
@@ -88,6 +97,9 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
+        $book = \App\Book::find($id);
+        $book->delete();
+        return redirect('books')->with('Sucesso!','O livro foi deletado!');
         //
     }
 }

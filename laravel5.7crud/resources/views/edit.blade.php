@@ -20,41 +20,35 @@
   </head>
   <body>
     <div class="container">
-      <h2>Cadastro de livros:</h2><br/>
-      <form method="post" action="{{url('books')}}" enctype="multipart/form-data">
+      <h2>Editar o cadastro do livro:</h2><br/>
+        <form method="post" action="{{action('BookController@update', $id)}}">
         {{ csrf_field() }}
+        <input name="_method" type="hidden" value="PATCH">
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4">
             <label for="nome">Nome:</label>
-            <input type="text" class="form-control" name="nome">
+            <input type="text" class="form-control" name="nome" value="{{$book->nome}}">
           </div>
         </div>
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4">
             <label for="Autor">Autor:</label>
-            <input type="text" class="form-control" name="autor">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4"></div>
-          <div class="form-group col-md-4">
-            <strong>Publicação : </strong>  
-            <input class="date form-control" type="text" id="datepicker" name="publicacao">   
+            <input type="text" class="form-control" name="autor" value="{{$book->autor}}">
           </div>
         </div>
         <div class="row">
           <div class="col-md-4"></div>
             <div class="form-group col-md-4">
               <label for="Editora">Editora:</label>
-              <input type="text" class="form-control" name="editora">
+              <input type="text" class="form-control" name="editora" value="{{$book->editora}}">
             </div>
         </div>
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4" style="margin-top:60px">
-            <button type="submit" class="btn btn-success">Adicionar</button>
+            <button type="submit" class="btn btn-success" style="margin-left:38px">Atualizar</button>
           </div>
         </div>
       </form>
