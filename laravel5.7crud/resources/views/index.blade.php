@@ -54,8 +54,10 @@
       @endforeach
     </tbody>
   </table>
-  <div class="row"><a href="{{action('BookController@create')}}" 
-  class="btn btn-primary">Adicionar Livro</a></div> 
+  @if (Auth::check())
+    <div class="row"><a href="{{action('BookController@create')}}" 
+    class="btn btn-primary">Adicionar Livro</a></div> 
+  @endif
   <br>
   <div class="row"><a href="{{action('HomeController@index')}}" 
   class="btn btn-primary">Home</a></div>

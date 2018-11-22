@@ -19,13 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->unsignedInteger('livros_lidos')->nullable();
             $table->rememberToken();
-            $table->timestamps();
-        });
-
-        Schema::table('users', function($table) {
-            $table->foreign('livros_lidos')->references('id')->on('books');
+            $table->timestamps();   
         });
     }
 

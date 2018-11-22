@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $books = \App\Book::where('id',$user->livros_lidos)->get();
+        $books = $user->books()->get();
 
         return view('home',compact('books'));
     }
@@ -38,8 +38,19 @@ class HomeController extends Controller
      */
     public function lido($id){
         $user = Auth::user();
-        $user->livros_lidos=$id;
-        $user->save();
+        $repetido = false;
+
+        foreach ($user->books()->get() as $book) {
+            if ($book->id == $id) {
+                $repetido = true;
+            }
+        }
+
+        if($repetido == false){
+            $user->books()->attach($id);
+            $user->save();            
+        }
+
         return redirect('/home');
 
     }
