@@ -23,7 +23,7 @@
         <th>Autor</th>
         <th>Publicação</th>
         <th>Editora</th>
-        <th colspan="2">Action</th>
+        <th colspan="2">Ação</th>
       </tr>
     </thead>
     <tbody>

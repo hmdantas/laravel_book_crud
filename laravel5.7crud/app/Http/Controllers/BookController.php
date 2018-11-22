@@ -35,7 +35,7 @@ class BookController extends Controller
     public function store(Request $request){
 
         $book= new \App\Book;
-        $book->Nome=$request->get('nome');
+        $book->nome=$request->get('nome');
         $book->autor=$request->get('autor');
         $publicacao=date_create($request->get('publicacao'));
         $format = date_format($publicacao,"d-m-Y");

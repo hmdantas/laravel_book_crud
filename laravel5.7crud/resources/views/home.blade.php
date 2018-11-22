@@ -20,5 +20,33 @@
             </div>
         </div>
     </div>
+    Livros lidos:
+    <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Autor</th>
+        <th>Publicação</th>
+        <th>Editora</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      @foreach($books as $book)
+      @php
+        $date=date('d-m-Y', $book['publicacao']);
+        @endphp
+      <tr>
+        <td>{{$book['id']}}</td>
+        <td>{{$book['nome']}}</td>
+        <td>{{$book['autor']}}</td>
+        <td>{{$date}}</td>
+        <td>{{$book['editora']}}</td>
+      </tr>
+      @endforeach
+    </tbody>
+  </table>
+
 </div>
 @endsection
