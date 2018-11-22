@@ -20,6 +20,8 @@ Route::resource('/','BookController');
 
 Route::resource('books','BookController');
 
-Auth::routes();
+Route::resource('home', 'HomeController');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('home/lido/{id}', 'HomeController@lido');
+
+Auth::routes();

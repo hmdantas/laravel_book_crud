@@ -29,4 +29,19 @@ class HomeController extends Controller
 
         return view('home',compact('books'));
     }
+
+        /**
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function lido($id){
+        $user = Auth::user();
+        $user->livros_lidos=$id;
+        $user->save();
+        return redirect('/home');
+
+    }
+
 }

@@ -15,8 +15,9 @@
                     @endif
 
                     You are logged in!
+                    <br>
+                    <a href="{{action('BookController@index')}}">Ver Lista Geral de Livros</a>
                 </div>
-
             </div>
         </div>
     </div>
