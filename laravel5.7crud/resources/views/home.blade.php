@@ -21,6 +21,7 @@
             </div>
         </div>
     </div>
+
     Livros lidos:
     <table class="table table-striped">
     <thead>
@@ -48,6 +49,37 @@
       @endforeach
     </tbody>
   </table>
+
+  <br>
+
+  Lista de desejos:
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Autor</th>
+        <th>Publicação</th>
+        <th>Editora</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      @foreach($wishs as $wish)
+      @php
+        $date=date('d-m-Y', $wish['publicacao']);
+        @endphp
+      <tr>
+        <td>{{$wish['id']}}</td>
+        <td>{{$wish['nome']}}</td>
+        <td>{{$wish['autor']}}</td>
+        <td>{{$date}}</td>
+        <td>{{$wish['editora']}}</td>
+      </tr>
+      @endforeach
+    </tbody>
+  </table>
+
 
 </div>
 @endsection

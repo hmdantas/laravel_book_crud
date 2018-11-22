@@ -27,7 +27,9 @@ class HomeController extends Controller
         $user = Auth::user();
         $books = $user->books()->get();
 
-        return view('home',compact('books'));
+        $wishs = $user->deseja()->get();
+
+        return view('home',compact('books', 'wishs'));
     }
 
         /**
@@ -55,4 +57,28 @@ class HomeController extends Controller
 
     }
 
+        /**
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function wish($id){
+        $user = Auth::user();
+        $repetido = false;
+
+        foreach ($user->deseja()->get() as $book) {
+            if ($book->id == $id) {
+                $repetido = true;
+            }
+        }
+
+        if($repetido == false){
+            $user->deseja()->attach($id);
+            $user->save();            
+        }
+
+        return redirect('/home');
+
+    }
 }

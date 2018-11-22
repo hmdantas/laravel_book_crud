@@ -12,6 +12,10 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Book');
     }
 
+    public function deseja(){
+        return $this->belongsToMany('App\Book', 'wishlist');
+    }
+
     use Notifiable;
 
     /**

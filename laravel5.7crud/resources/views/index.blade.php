@@ -42,6 +42,7 @@
         <td><a href="{{action('BookController@edit', $book['id'])}}" class="btn btn-warning">Editar</a></td>
         @if (Auth::check())
           <td><a href="{{action('HomeController@lido', $book['id'])}}" class="btn btn-primary">Marcar Lido</a></td>
+          <td><a href="{{action('HomeController@wish', $book['id'])}}" class="btn btn-primary">Wishlist</a></td>
         @endif
         <td>
           <form action="{{action('BookController@destroy', $book['id'])}}" method="post">

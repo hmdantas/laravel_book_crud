@@ -24,4 +24,6 @@ Route::resource('home', 'HomeController');
 
 Route::get('home/lido/{id}', 'HomeController@lido');
 
+Route::get('home/wish/{id}', 'HomeController@wish');
+
 Auth::routes();
