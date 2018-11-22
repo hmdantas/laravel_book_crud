@@ -51,8 +51,11 @@
       @endforeach
     </tbody>
   </table>
-  <a href="{{action('BookController@create')}}" 
-  class="btn btn-primary">Adicionar Livro</a>      
+  <div class="row"><a href="{{action('BookController@create')}}" 
+  class="btn btn-primary">Adicionar Livro</a></div> 
+  <br>
+  <div class="row"><a href="{{action('HomeController@index')}}" 
+  class="btn btn-primary">Home</a></div>
   </div>
   </body>
 </html>
