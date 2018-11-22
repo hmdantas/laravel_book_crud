@@ -57,6 +57,33 @@ class HomeController extends Controller
 
     }
 
+    /**
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function removelido($id){
+        $user = Auth::user();
+        $user->books()->detach($id);
+        
+        return redirect('/home');
+
+    }
+
+    /**
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function removewish($id){
+        $user = Auth::user();
+        $user->deseja()->detach($id);
+        
+        return redirect('/home');
+
+    }
+
+
         /**
      *
      * @param  \Illuminate\Http\Request  $request

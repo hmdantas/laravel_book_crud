@@ -31,6 +31,7 @@
         <th>Autor</th>
         <th>Publicação</th>
         <th>Editora</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -45,6 +46,13 @@
         <td>{{$book['autor']}}</td>
         <td>{{$date}}</td>
         <td>{{$book['editora']}}</td>
+        <td>
+            <form action="{{action('HomeController@removelido', $book['id'])}}" method="post">
+                {{ csrf_field() }}
+                <input name="_method" type="hidden" value="POST">
+                <button class="glyphicon glyphicon-remove" style="color:red" type="submit"></button>
+            </form>
+        </td>
       </tr>
       @endforeach
     </tbody>
@@ -61,6 +69,7 @@
         <th>Autor</th>
         <th>Publicação</th>
         <th>Editora</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -75,6 +84,14 @@
         <td>{{$wish['autor']}}</td>
         <td>{{$date}}</td>
         <td>{{$wish['editora']}}</td>
+        <td>
+            <form action="{{action('HomeController@removewish', $wish['id'])}}" method="post">
+                {{ csrf_field() }}
+                <input name="_method" type="hidden" value="POST">
+                <button class="glyphicon glyphicon-remove" style="color:red" type="submit"></button>
+            </form>
+        </td>
+
       </tr>
       @endforeach
     </tbody>

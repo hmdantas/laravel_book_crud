@@ -20,10 +20,14 @@ Route::resource('/','BookController');
 
 Route::resource('books','BookController');
 
-Route::resource('home', 'HomeController');
+Route::post('home/removelido/{id}', 'HomeController@removelido');
+
+Route::post('home/removewish/{id}', 'HomeController@removewish');
 
 Route::get('home/lido/{id}', 'HomeController@lido');
 
 Route::get('home/wish/{id}', 'HomeController@wish');
+
+Route::resource('home', 'HomeController');
 
 Auth::routes();
