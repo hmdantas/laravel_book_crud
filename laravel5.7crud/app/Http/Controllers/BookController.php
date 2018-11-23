@@ -47,7 +47,7 @@ class BookController extends Controller
         $book->save();
 
         $autores=$request->get('autores');
-        
+
         foreach ($autores as $autor) {
             $book->autores()->attach($autor);
         }
@@ -76,7 +76,8 @@ class BookController extends Controller
     public function edit($id)
     {
         $book = \App\Book::find($id);
-        return view('edit',compact('book','id'));
+        $autores=\App\Autor::all();
+        return view('edit',compact('book','autores','id'));
     }
 
     /**
@@ -90,9 +91,16 @@ class BookController extends Controller
     {
         $book= \App\Book::find($id);
         $book->nome=$request->get('nome');
-        $book->autor=$request->get('autor');
         $book->editora=$request->get('editora');
         $book->save();
+
+        $autores=$request->get('autores');
+
+        foreach ($autores as $autor) {
+            $book->autores()->attach($autor);
+        }
+        $book->save();
+
         return redirect('books');
         //
     }
