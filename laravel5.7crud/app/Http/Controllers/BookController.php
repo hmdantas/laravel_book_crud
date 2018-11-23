@@ -22,7 +22,8 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('create');
+        $autores=\App\Autor::all();
+        return view('create',compact('autores'));
         //
     }
 
@@ -36,13 +37,22 @@ class BookController extends Controller
 
         $book= new \App\Book;
         $book->nome=$request->get('nome');
-        $book->autor=$request->get('autor');
+
+
         $publicacao=date_create($request->get('publicacao'));
         $format = date_format($publicacao,"d-m-Y");
         $book->publicacao = strtotime($format);
         $book->editora=$request->get('editora');
+
         $book->save();
+
+        $autores=$request->get('autores');
         
+        foreach ($autores as $autor) {
+            $book->autores()->attach($autor);
+        }
+        $book->save();
+
         return redirect('books')->with('Sucesso!', 'A informação foi salva!');
     }
 

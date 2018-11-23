@@ -46,7 +46,10 @@
     </tbody>
   </table>
   <div class="row"><a href="{{action('AutorController@create')}}" 
-  class="btn btn-success">Adicionar Autor</a></div> 
+  class="btn btn-primary">Adicionar Autor</a></div>
+  <br>
+  <div class="row"><a href="{{action('HomeController@index')}}" 
+  class="btn btn-primary">Home</a></div>
   </div>
   </body>
 </html>

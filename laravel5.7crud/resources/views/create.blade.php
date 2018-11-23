@@ -32,7 +32,11 @@
           <div class="col-md-4"></div>
           <div class="form-group col-md-4">
             <label for="Autor">Autor:</label>
-            <input type="text" class="form-control" name="autor">
+            <select name="autores[]" multiple>
+              @foreach($autores as $autor)
+              <option value="{{$autor['id']}}">{{$autor['nome']}}</option>
+              @endforeach
+            </select>
           </div>
         </div>
         <div class="row">

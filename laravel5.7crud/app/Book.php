@@ -17,4 +17,8 @@ class Book extends Model
     public function desejado_por(){
     	return $this->belongsToMany('App\User', 'whishlist');
     }
+
+    public function autores(){
+        return $this->belongsToMany('App\Autor', 'autor_book');
+    }
 }

@@ -35,7 +35,12 @@
       <tr>
         <td>{{$book['id']}}</td>
         <td>{{$book['nome']}}</td>
-        <td>{{$book['autor']}}</td>
+        <td>
+          @foreach($book->autores as $autor)
+          {{$autor->nome}}
+          <br>
+          @endforeach
+        </td>
         <td>{{$date}}</td>
         <td>{{$book['editora']}}</td>
 
