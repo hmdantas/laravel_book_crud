@@ -19,6 +19,7 @@
         <th>CPF</th>
         <th>Nome</th>
         <th>Data de Nascimento</th>
+        <th>Livros associados:</th>
         <th colspan="2">Ação</th>
       </tr>
     </thead>
@@ -32,7 +33,12 @@
         <td>{{$autor['cpf']}}</td>
         <td>{{$autor['nome']}}</td>
         <td>{{$data}}</td>
-
+        <td>
+          @foreach($autor->books as $book)
+          {{$book->nome}}
+          <br>
+          @endforeach
+        </td>
         <td><a href="{{action('AutorController@edit', $autor['id'])}}" class="btn btn-warning">Editar</a></td>
         <td>
           <form action="{{action('AutorController@destroy', $autor['id'])}}" method="post">
