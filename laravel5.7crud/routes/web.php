@@ -16,8 +16,6 @@
 });
 */
 
-Route::resource('/','BookController');
-
 Route::resource('books','BookController');
 
 Route::resource('autores','AutorController');
@@ -29,6 +27,8 @@ Route::post('home/removewish/{id}', 'HomeController@removewish');
 Route::get('home/lido/{id}', 'HomeController@lido');
 
 Route::get('home/wish/{id}', 'HomeController@wish');
+
+Route::resource('/','HomeController');
 
 Route::resource('home', 'HomeController');
 

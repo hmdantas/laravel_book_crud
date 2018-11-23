@@ -33,9 +33,9 @@
         <td>{{$autor['nome']}}</td>
         <td>{{$data}}</td>
 
-        <td><a href="{{action('AutorController@edit', $autor['cpf'])}}" class="btn btn-warning">Editar</a></td>
+        <td><a href="{{action('AutorController@edit', $autor['id'])}}" class="btn btn-warning">Editar</a></td>
         <td>
-          <form action="{{action('AutorController@destroy', $autor['cpf'])}}" method="post">
+          <form action="{{action('AutorController@destroy', $autor['id'])}}" method="post">
             {{ csrf_field() }}
             <input name="_method" type="hidden" value="DELETE">
             <button class="btn btn-danger" type="submit">Delete</button>

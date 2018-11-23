@@ -14,9 +14,8 @@ class CreateAutoresTable extends Migration
     public function up()
     {
         Schema::create('autores', function (Blueprint $table) {
-            $table->string('cpf')->unique();
-            $table->primary('cpf');
-            
+            $table->increments('id');
+            $table->string('cpf')->unique();           
             $table->string('nome');
             $table->integer('data');
             $table->timestamps();   

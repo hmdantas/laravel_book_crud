@@ -67,8 +67,6 @@ class BookController extends Controller
     {
         $book = \App\Book::find($id);
         return view('edit',compact('book','id'));
-  
-        //
     }
 
     /**

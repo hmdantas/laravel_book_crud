@@ -67,7 +67,10 @@ class AutorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $autor = \App\Autor::find($id);
+        $autor->data = gmdate("d-m-Y", $autor->data);        
+
+        return view('edita_autor',compact('autor','id'));  
     }
 
     /**
@@ -79,7 +82,18 @@ class AutorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $autor = \App\Autor::find($id);
+
+        $autor->cpf=$request->get('cpf');
+        $autor->nome=$request->get('nome');
+
+        $data=date_create($request->get('data'));
+        $format = date_format($data,"d-m-Y");
+        $autor->data = strtotime($format);
+
+        $autor->save();
+
+        return redirect('autores');
     }
 
     /**
