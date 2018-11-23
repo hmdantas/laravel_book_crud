@@ -45,6 +45,8 @@
       @endforeach
     </tbody>
   </table>
+  <div class="row"><a href="{{action('AutorController@create')}}" 
+  class="btn btn-success">Adicionar Autor</a></div> 
   </div>
   </body>
 </html>

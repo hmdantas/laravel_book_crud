@@ -24,7 +24,7 @@ class AutorController extends Controller
      */
     public function create()
     {
-        //
+        return view('cadastra_autor');
     }
 
     /**
@@ -35,7 +35,17 @@ class AutorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $autor= new \App\Autor;
+        $autor->cpf=$request->get('cpf');
+        $autor->nome=$request->get('nome');
+        
+        $data=date_create($request->get('data'));
+        $format = date_format($data,"d-m-Y");
+        $autor->data = strtotime($format);
+
+        $autor->save();
+        
+        return redirect('autores')->with('Sucesso!', 'A informação foi salva!');
     }
 
     /**
