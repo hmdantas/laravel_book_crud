@@ -20,6 +20,8 @@ Route::resource('/','BookController');
 
 Route::resource('books','BookController');
 
+Route::resource('autores','AutorController');
+
 Route::post('home/removelido/{id}', 'HomeController@removelido');
 
 Route::post('home/removewish/{id}', 'HomeController@removewish');

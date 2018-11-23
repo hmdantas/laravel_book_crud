@@ -39,18 +39,18 @@
         <td>{{$date}}</td>
         <td>{{$book['editora']}}</td>
 
-        <td><a href="{{action('BookController@edit', $book['id'])}}" class="btn btn-warning">Editar</a></td>
         @if (Auth::check())
+          <td><a href="{{action('BookController@edit', $book['id'])}}" class="btn btn-warning">Editar</a></td>
           <td><a href="{{action('HomeController@lido', $book['id'])}}" class="btn btn-primary">Marcar Lido</a></td>
           <td><a href="{{action('HomeController@wish', $book['id'])}}" class="btn btn-primary">Wishlist</a></td>
+          <td>
+            <form action="{{action('BookController@destroy', $book['id'])}}" method="post">
+              {{ csrf_field() }}
+              <input name="_method" type="hidden" value="DELETE">
+              <button class="btn btn-danger" type="submit">Deletar</button>
+            </form>
+          </td>
         @endif
-        <td>
-          <form action="{{action('BookController@destroy', $book['id'])}}" method="post">
-            {{ csrf_field() }}
-            <input name="_method" type="hidden" value="DELETE">
-            <button class="btn btn-danger" type="submit">Deletar</button>
-          </form>
-        </td>
       </tr>
       @endforeach
     </tbody>
